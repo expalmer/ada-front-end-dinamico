@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Front End Dinâmico - Ada</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="pt-3 top-0 left-0 sticky">
+      <div class="m-auto max-w-4xl px-8 flex flex-col gap-10">
+        <nav
+          class="relative flex flex-col gap-6 border border-gray-800 rounded-full items-center p-4 bg-black"
+          id="js-nav"
+        >
+          <a href="/" class="absolute left-2 top-1/2 -translate-y-1/2">
+            <h1 class="text-ada-primary flex gap-2 items-end">
+              <img src="/ada.svg" alt="Vite Logo" class="w-12" />
+            </h1>
+          </a>
+          <ul
+            class="flex gap-4 justify-center items-center flex-wrap px-10"
+            id="nav"
+          >
+            <li>
+              <a href="#intro" class="nav">Intro</a>
+            </li>
+            <li>
+              <a href="#instrutor" class="nav">Instrutor</a>
+            </li>
+            <li>
+              <a href="#combinados" class="nav">Combinados</a>
+            </li>
+            <li>
+              <a href="#aulas" class="nav">Aulas</a>
+            </li>
+          </ul>
+
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdVpqbkEl3GTJWUSSsqrWCr3O4KAL2TpBEeLuTZkxfgxYsRwg/viewform"
+            target="_blank"
+            title="Formulário de Dúvidas"
+            class="text-white font-semibold hover:text-gray-400 absolute right-2 top-1/2 -translate-y-1/2"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-message-question"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M8 9h8" />
+              <path d="M8 13h6" />
+              <path
+                d="M14 18h-1l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v4.5"
+              />
+              <path d="M19 22v.01" />
+              <path
+                d="M19 19a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483"
+              />
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="m-auto max-w-4xl pt-12 px-8 pb-8 flex flex-col gap-24">
+      <h1 class="text-5xl font-semibold text-center">
+        <span class="active">Front End Dinâmico</span>
+      </h1>
+
+      <section class="flex flex-col gap-8" id="intro">
+        <h2 class="text-white text-4xl font-semibold text-center">Intro</h2>
+        <div class="flex flex-col gap-10" id="js-intro"></div>
+      </section>
+
+      <section class="flex flex-col gap-8" id="instrutor">
+        <h2 class="text-white text-4xl font-semibold text-center">Instrutor</h2>
+        <div class="flex flex-col gap-10" id="js-instrutor"></div>
+      </section>
+
+      <section class="flex flex-col gap-8" id="combinados">
+        <h2 class="text-white text-4xl font-semibold text-center">
+          Combinados
+        </h2>
+        <div class="flex flex-col gap-10" id="js-combinados"></div>
+      </section>
+
+      <section class="flex flex-col gap-8" id="aulas">
+        <h2 class="text-white text-4xl font-semibold text-center">Aulas</h2>
+        <div class="flex flex-col gap-10" id="js-aulas"></div>
+      </section>
+    </main>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
