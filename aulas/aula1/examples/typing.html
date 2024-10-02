@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #typewriter {
+        font-family: monospace;
+        font-size: 2rem;
+        border-right: 2px solid black;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="content" />
+    <button id="startTyping">Começar a digitar</button>
+    <p>
+      <div id="typewriter"></div>
+    </p>
+
+    <script>
+      const typewriter = document.getElementById("typewriter");
+      let index = 0;
+
+      document
+        .getElementById("startTyping")
+        .addEventListener("click", function () {
+          const text = document.getElementById("content").value;
+          typewriter.textContent = ""; // Reseta o conteúdo antes de começar
+          index = 0;
+          const typingInterval = setInterval(() => {
+            typewriter.textContent += text.charAt(index);
+            index++;
+            if (index > text.length) {
+              clearInterval(typingInterval);
+            }
+          }, 150); // Velocidade da digitação
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .bubble {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 150, 255, 0.5);
+        position: absolute;
+        border-radius: 50%;
+        animation: grow 2s ease-out forwards;
+      }
+
+      @keyframes grow {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(5);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button id="createBubble">Clique para criar bolhas!</button>
+
+    <script>
+      const colors = [
+        "red",
+        "green",
+        "blue",
+        "yellow",
+        "pink",
+        "purple",
+        "orange",
+        "brown",
+        "black",
+        "white",
+      ];
+
+      const button = document.getElementById("createBubble");
+
+      button.addEventListener("click", function (event) {
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+        bubble.style.backgroundColor = color;
+        bubble.style.position = "fixed";
+
+        // console.log("window.innerHeight", Math.random() * window.innerHeight);
+        bubble.style.left = `${Math.random() * window.innerWidth}px`;
+        bubble.style.top = `${Math.random() * window.innerHeight}px`;
+
+        document.body.appendChild(bubble);
+
+        bubble.addEventListener("animationend", () => {
+          bubble.remove();
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  padding: 24px;
+  background-color: #f4f4f9;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input_inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 24px;
+}
+.input_search {
+  position: absolute;
+  left: 8px;
+  color: #b0a2a2;
+}
+.input input {
+  padding: 8px 8px 8px 40px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+.input input:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.input_voice {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  position: absolute;
+  right: 8px;
+  color: #b0a2a2;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: #fff;
+
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+ul li button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: red;
+}
+
+.done span {
+  text-decoration: line-through;
+  opacity: 0.5;
+}

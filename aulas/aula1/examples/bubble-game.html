@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .bubble {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 150, 255, 0.5);
+        position: absolute;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Pontuação: <span id="score">0</span></h1>
+
+    <script>
+      let score = 0;
+      const scoreDisplay = document.getElementById("score");
+
+      function createBubble() {
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+
+        const size = Math.random() * 50 + 30;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+
+        bubble.style.top = `${Math.random() * window.innerHeight}px`;
+        bubble.style.left = `${Math.random() * window.innerWidth}px`;
+
+        document.body.appendChild(bubble);
+
+        // Clicar na bolha aumenta a pontuação
+        bubble.addEventListener("click", () => {
+          score++;
+          scoreDisplay.textContent = score;
+          bubble.remove();
+        });
+
+        // Remover bolha depois de um tempo
+        setTimeout(() => {
+          bubble.remove();
+        }, 2000);
+      }
+
+      // Criar bolhas em intervalos regulares
+      setInterval(createBubble, 1000);
+    </script>
+  </body>
+</html>

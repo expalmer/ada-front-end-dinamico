@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        --background-color: white;
+        --text-color: black;
+      }
+
+      body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: Arial, sans-serif;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .dark-mode {
+        --background-color: black;
+        --text-color: white;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tema Dinâmico: Claro e Escuro</h1>
+    <button id="toggleTheme">Modo Escuro</button>
+
+    <script>
+      const button = document.getElementById("toggleTheme");
+
+      button.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+
+        // Atualizar texto do botão baseado no tema atual
+        if (document.body.classList.contains("dark-mode")) {
+          button.textContent = "Modo Claro";
+        } else {
+          button.textContent = "Modo Escuro";
+        }
+      });
+    </script>
+  </body>
+</html>

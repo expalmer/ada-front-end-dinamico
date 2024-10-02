@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemplos de addEventListener</title>
+    <style>
+      #myDiv {
+        width: 200px;
+        height: 100px;
+        background-color: lightblue;
+        margin-bottom: 20px;
+      }
+
+      #scrollDiv p {
+        margin: 0;
+      }
+
+      #scrollDiv {
+        height: 200px;
+        width: 300px;
+        overflow-y: scroll;
+        border: 1px solid black;
+        padding: 10px;
+      }
+
+      #scrollDiv p {
+        margin: 0;
+      }
+
+      #screenSize {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background-color: antiquewhite;
+        padding: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Botão com evento click -->
+    <h2>Exemplo de evento "click"</h2>
+    <button id="myButton">Clique aqui</button>
+
+    <!-- Div com evento mouseover e mouseout -->
+    <h2>Exemplo de eventos "mouseover" e "mouseout"</h2>
+    <div id="myDiv">Passe o mouse aqui</div>
+
+    <!-- Input com evento input -->
+    <h2>Exemplo de evento "input"</h2>
+    <div>
+      <input type="text" id="myInput" placeholder="Digite algo" />
+      <div>
+        <span id="myInputContent"></span>
+        <strong id="myInputFinal"></strong>
+      </div>
+    </div>
+
+    <!-- Formulário com evento submit -->
+    <h2>Exemplo de evento "submit"</h2>
+    <form id="myForm">
+      <input type="text" placeholder="Digite algo" />
+      <button type="submit">Enviar</button>
+    </form>
+
+    <!-- Input com eventos keydown e keyup -->
+    <h2>Exemplo de eventos "keydown" e "keyup"</h2>
+    <input type="text" id="keyInput" placeholder="Pressione uma tecla" />
+
+    <!-- Select com evento change -->
+    <h2>Exemplo de evento "change" em select</h2>
+    <p>
+      <select id="mySelect">
+        <option value="opcao1">Opção 1</option>
+        <option value="opcao2">Opção 2</option>
+      </select>
+      <span id="mySelectValue"></span>
+    </p>
+
+    <!-- Div com evento scroll -->
+    <h2>Exemplo de evento "scroll"</h2>
+    <div id="scrollDiv">
+      <p>Texto muito longo...</p>
+      <p>Mais texto...</p>
+      <p>E mais...</p>
+      <p>Texto muito longo...</p>
+      <p>Mais texto...</p>
+      <p>E mais...</p>
+      <p>Texto muito longo...</p>
+      <p>Mais texto...</p>
+      <p>E mais...</p>
+      <p>Texto muito longo...</p>
+      <p>Mais texto...</p>
+      <p>E mais...</p>
+      <p>Texto muito longo...</p>
+      <p>Mais texto...</p>
+      <p>E mais...</p>
+      <p>Texto muito longo...</p>
+      <p>Mais texto...</p>
+      <p>E mais...</p>
+      <p>Texto muito longo...</p>
+      <p>Mais texto...</p>
+      <p>E mais...</p>
+    </div>
+
+    <span id="screenSize"> </span>
+
+    <script>
+      // Evento click no botão
+      const button = document.getElementById("myButton");
+      button.addEventListener("click", () => {
+        alert("Você clicou no botão!");
+      });
+
+      // Evento mouseover e mouseout na div
+      const div = document.getElementById("myDiv");
+      div.addEventListener("mouseover", () => {
+        div.style.backgroundColor = "lightgreen";
+      });
+      div.addEventListener("mouseout", () => {
+        div.style.backgroundColor = "lightblue";
+      });
+
+      // Evento input no campo de texto
+      const input = document.getElementById("myInput");
+      const inputContent = document.getElementById("myInputContent");
+      const inputFinal = document.getElementById("myInputFinal");
+      input.addEventListener("input", (e) => {
+        console.log(e.target.value);
+        inputContent.textContent = e.target.value;
+      });
+      input.addEventListener("change", (event) => {
+        inputFinal.textContent = event.target.value;
+      });
+
+      // Evento submit no formulário
+      const form = document.getElementById("myForm");
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        alert("Formulário enviado");
+      });
+
+      // Eventos keydown e keyup no campo de texto
+      const keyInput = document.getElementById("keyInput");
+      keyInput.addEventListener("keydown", (event) => {
+        console.log("KeyDown " + event.key);
+      });
+      keyInput.addEventListener("keyup", (event) => {
+        console.log("KeyUp: " + event.key);
+      });
+
+      // Evento change no select
+      const select = document.getElementById("mySelect");
+      const selectValue = document.getElementById("mySelectValue");
+      selectValue.textContent = select.value;
+
+      select.addEventListener("change", (e) => {
+        selectValue.textContent = e.target.value;
+      });
+
+      // Evento scroll na div
+      const scrollDiv = document.getElementById("scrollDiv");
+      scrollDiv.addEventListener("scroll", (e) => {
+        // when scroll touch the bottom, add a new paragraph
+        console.log({
+          scrollTop: scrollDiv.scrollTop,
+          clientHeight: scrollDiv.clientHeight,
+          scrollHeight: scrollDiv.scrollHeight,
+        });
+      });
+
+      // Evento resize na janela
+      const screenSize = document.getElementById("screenSize");
+      screenSize.textContent = window.innerWidth + "x" + window.innerHeight;
+
+      window.addEventListener("resize", () => {
+        screenSize.textContent = window.innerWidth + "x" + window.innerHeight;
+      });
+    </script>
+  </body>
+</html>
