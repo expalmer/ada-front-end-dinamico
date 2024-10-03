@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callback</title>
+  </head>
+  <body>
+    <h1>Callback</h1>
+  </body>
+
+  <script>
+    const hello = (name, callback) => {
+      const resultado = callback(name);
+      console.log(resultado);
+    };
+
+    const nataliaFunction = (name) => {
+      return `Oi ${name}: Meu nome é Natália`;
+    };
+
+    const lucasFunction = (name) => {
+      return `Oh ${name}: Eu não gosto de React tá`;
+    };
+
+    const karolFunction = (name, age) => {
+      return `Oh ${name}: você tem ${age} anos ?`;
+    };
+
+    hello("Felpex", nataliaFunction);
+
+    const getUser = (userName, cb) => {
+      console.log("Segura ai que ja vai chamar");
+      let interval;
+
+      const chamaEuTodaHora = () => {
+        console.log("Buscando na API...segura ai", new Date().getSeconds());
+      };
+
+      interval = setInterval(chamaEuTodaHora, 1000);
+
+      setTimeout(() => {
+        cb({
+          name: "Felpex",
+          age: 12,
+          money: 1000,
+        });
+        clearInterval(interval);
+      }, 8000);
+    };
+
+    const recebeUser = (user) => {
+      console.log({ user });
+    };
+
+    getUser("felpex", recebeUser);
+  </script>
+</html>

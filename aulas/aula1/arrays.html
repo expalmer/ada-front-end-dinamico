@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrays</title>
+  </head>
+  <body>
+    <h1>Arrays</h1>
+  </body>
+
+  <script>
+    const items = [
+      {
+        name: "Nike Shox",
+        category: "tenis",
+      },
+      {
+        name: "Nike SB",
+        category: "tenis",
+      },
+      {
+        name: "Adidas Z",
+        category: "bone",
+      },
+    ];
+
+    const tenis = items.filter((item) => item.category === "tenis");
+
+    // Podemos encadear métodos de array
+    const res = items
+      .filter((x) => x.category === "tenis")
+      .map((x) => x.name)
+      .map((x) => x.toLocaleUpperCase())
+      .join(",");
+
+    console.log({ res });
+    // No final temos uma string com os nomes dos tenis em uppercase separados por vírgula
+
+    /* 
+      DESAFIO 1
+      retornar
+      {
+        tenis: ["Nike Shox", "Nike SB"],
+        bone: ["Adidas Z"]
+      }
+
+      DESAFIO 2
+      retornar
+      {
+        tenis: { total: 2, items: ["Nike Shox", "Nike SB"] },
+        bone: { total: 1, items: ["Adidas Z"] }
+      }
+    */
+
+    const animal = ["tiger", "lion", "dog", "cat", "duck"];
+    let i = 0;
+    const animalUpper = animal.map((item, index, array) => {
+      if (index === 0) {
+        return `SOU O PRIMEIRO ${item}`;
+      }
+      if (index === array.length - 1) {
+        return `SOU O ULTIMO: ${item}`;
+      }
+      return `${item.toUpperCase()} ${index}`;
+    });
+
+    animalUpper.forEach((item) => {
+      console.log({ item });
+    });
+
+    const hasTiger = animalUpper.some((item) => item === "tiger");
+    const isAllGreatedThan1 = animalUpper.every((item) => item.length > 1);
+  </script>
+</html>

@@ -166,17 +166,8 @@ export const data = [
       },
       {
         id: 2,
-        title: "Criando um contator",
-        descriptions: [
-          "Criando um contador que incrementa ou decrementa um valor",
-        ],
-      },
-      {
-        id: 3,
-        title: "Criando um formulário",
-        descriptions: [
-          "Criando um formulário com campos de texto, botões e eventos",
-        ],
+        title: "[ arquivos da aula ]",
+        descriptions: [`Logo já posto, acessa o github por enquanto`],
       },
     ],
   },
@@ -186,6 +177,20 @@ export const data = [
     items: [
       {
         id: 1,
+        title: "Criando um contator",
+        descriptions: [
+          "Criando um contador que incrementa ou decrementa um valor",
+        ],
+      },
+      {
+        id: 2,
+        title: "Criando um formulário",
+        descriptions: [
+          "Criando um formulário com campos de texto, botões e eventos",
+        ],
+      },
+      {
+        id: 3,
         title: "Reatividade em formulários",
         descriptions: [
           "O que é reatividade?",
@@ -194,7 +199,7 @@ export const data = [
         ],
       },
       {
-        id: 2,
+        id: 4,
         title: "Criando um TODO List",
         descriptions: [
           "Adicionando itens a uma lista de tarefas através de um formulário reativo",

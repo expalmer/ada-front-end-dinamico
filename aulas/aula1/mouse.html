@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .red {
+      color: red;
+    }
+    .green {
+      color: green;
+    }
+  </style>
+  <body>
+    <h1 id="h1">Callback</h1>
+  </body>
+
+  <script>
+    const $h1 = document.getElementById("h1");
+
+    $h1.addEventListener("mouseenter", (e) => {
+      e.target.classList.add("red");
+    });
+
+    $h1.addEventListener("mouseleave", (e) => {
+      e.target.classList.add("green");
+    });
+
+    $h1.addEventListener("click", (e) => {
+      console.log(e.target);
+    });
+  </script>
+</html>
