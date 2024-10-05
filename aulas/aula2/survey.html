@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Satisfaction Survey</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      * {
+        margin: 0;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        background-color: #f1f1f1;
+      }
+
+      input[type="radio"] {
+        display: none;
+      }
+
+      .form-group {
+        padding: 24px;
+        display: flex;
+        gap: 8px;
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .level {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #ccc;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      label:hover .level {
+        background-color: #007bff;
+      }
+
+      .active .level {
+        background-color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Support</h1>
+    // DEsafio dos SVG
+    <h3>Como você avalia a nova experiência do site ?</h3>
+    <form id="js-form">
+      <div class="form-group">
+        <label for="level-1">
+          <span class="level">1</span>
+          <input type="radio" name="level" value="level-1" id="level-1" />
+        </label>
+        <label for="level-2">
+          <span class="level">2</span>
+          <input type="radio" name="level" value="level-2" id="level-2" />
+        </label>
+        <label for="level-3">
+          <span class="level">3</span>
+          <input type="radio" name="level" value="level-3" id="level-3" />
+        </label>
+        <label for="level-4">
+          <span class="level">4</span>
+          <input type="radio" name="level" value="level-4" id="level-4" />
+        </label>
+        <label for="level-5">
+          <span class="level">5</span>
+          <input type="radio" name="level" value="level-5" id="level-5" />
+        </label>
+      </div>
+
+      <p style="text-align: center">
+        <button type="submit">Send</button>
+      </p>
+    </form>
+
+    <script>
+      const radios = document.querySelectorAll('input[type="radio"]');
+
+      radios.forEach((radio) => {
+        radio.addEventListener("change", () => {
+          radios.forEach((r) => {
+            r.parentElement.classList.remove("active");
+          });
+
+          radio.parentElement.classList.add("active");
+        });
+      });
+
+      const $form = document.getElementById("js-form");
+      $form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const selector = document.querySelector('input[type="radio"]:checked');
+        console.log(selector);
+      });
+    </script>
+  </body>
+</html>

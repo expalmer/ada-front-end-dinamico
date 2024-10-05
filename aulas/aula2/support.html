@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      * {
+        margin: 0;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        background-color: #f1f1f1;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 300px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      button[type="submit"] {
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .error {
+        border-color: red;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Support</h1>
+    <form method="post" class="form" id="js-form">
+      <div class="form-group">
+        <label for="department">Department</label>
+        <select name="department" id="department">
+          <option value="">-</option>
+          <option value="sales">Sales</option>
+          <option value="support">Support</option>
+          <option value="billing">Billing</option>
+        </select>
+        <span></span>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea type="description" id="description" rows="3"></textarea>
+        <span></span>
+      </div>
+
+      <div class="form-group">
+        <label for="channel">What channel do you prefer?</label>
+
+        <div>
+          <input type="radio" name="channel" id="email" value="email" />
+          <label for="email">Email</label>
+        </div>
+        <div>
+          <input type="radio" name="channel" id="phone" value="phone" />
+          <label for="phone">Phone</label>
+        </div>
+        <div>
+          <input type="radio" name="channel" id="whats" value="whats" />
+          <label for="whats">whats</label>
+        </div>
+      </div>
+
+      <button type="submit">Send</button>
+    </form>
+    <script>
+      const $form = document.getElementById("js-form");
+
+      const elements = {
+        department: $form.querySelector("#department"),
+        description: $form.querySelector("#description"),
+        channel: $form.querySelector("#channel"),
+      };
+
+      const errors = {};
+
+      const showError = (key, message) => {
+        const element = elements[key];
+        element.classList.add("error");
+        element.nextSibling.textContent = message;
+        errors[key] = message;
+      };
+
+      const removeError = (key) => {
+        const element = elements[key];
+        element.classList.remove("error");
+        element.nextSibling.textContent = "";
+        delete errors[key];
+      };
+
+      elements.department.addEventListener("input", (e) => {
+        if (!elements.department.value) {
+          showError("department", "Department is required");
+        } else {
+          removeError("department");
+        }
+      });
+
+      $form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        console.log({ errors });
+      });
+    </script>
+  </body>
+</html>

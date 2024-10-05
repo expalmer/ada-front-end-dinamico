@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      * {
+        margin: 0;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        background-color: #f1f1f1;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      button[type="submit"] {
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input:invalid {
+        border-color: red;
+      }
+      input:valid {
+        border-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Signup</h1>
+    <form method="post" class="form" id="js-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" required min="3" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" autocomplete="username" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          autocomplete="new-password"
+          required
+          min="8"
+        />
+        <button type="button">show</button>
+      </div>
+      <div class="form-group">
+        <label for="password-confirm">Confirm Password</label>
+        <input
+          type="password"
+          id="password-confirm"
+          autocomplete="new-password"
+          required
+          min="8"
+        />
+      </div>
+      <button type="submit">Signup</button>
+    </form>
+    <script>
+      const $form = document.getElementById("js-form");
+
+      const $name = $form.querySelector("#name");
+      const $email = $form.querySelector("#email");
+      const $password = $form.querySelector("#password");
+      const $passwordConfirm = $form.querySelector("#password-confirm");
+
+      $form.addEventListener("submit", (event) => {
+        e.preventDefault();
+
+        const json = {
+          name: $name.value,
+          email: $email.value,
+          password: $password.value,
+          passwordConfirm: $passwordConfirm.value,
+        };
+
+        console.log(json);
+      });
+    </script>
+  </body>
+</html>

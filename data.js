@@ -167,7 +167,13 @@ export const data = [
       {
         id: 2,
         title: "[ arquivos da aula ]",
-        descriptions: [`Logo já posto, acessa o github por enquanto`],
+
+        descriptions: [
+          `${button(
+            "https://github.com/expalmer/ada-front-end-dinamico/tree/master/aulas/aula1",
+            "github com os arquivos"
+          )}`,
+        ],
       },
     ],
   },
@@ -199,10 +205,14 @@ export const data = [
         ],
       },
       {
-        id: 4,
-        title: "Criando um TODO List",
+        id: 2,
+        title: "[ arquivos da aula ]",
+
         descriptions: [
-          "Adicionando itens a uma lista de tarefas através de um formulário reativo",
+          `${button(
+            "https://github.com/expalmer/ada-front-end-dinamico/tree/master/aulas/aula2",
+            "github com os arquivos"
+          )}`,
         ],
       },
     ],
@@ -210,26 +220,33 @@ export const data = [
   {
     id: 3,
     title:
-      "Persistindo dados no LocalStorage/SessionStorage e aprimorando o Todo List",
+      "Persistindo dados no LocalStorage/SessionStorage e começo do Todo List",
     items: [
       {
         id: 1,
+        title: "Criando um Todo List",
+        descriptions: [
+          "Adicionando itens a uma lista através de um formulário reativo",
+        ],
+      },
+      {
+        id: 2,
+        title: "Aprimorando o do Todo List",
+        descriptions: [
+          "Opção de marcar como concluído",
+          "Opção de excluir um item",
+          "Opção de editar um item",
+          "Salvando o do Todo List no LocalStorage",
+        ],
+      },
+      {
+        id: 3,
         title: "Entendo LocalStorage",
         descriptions: [
           "O que é LocalStorage?",
           "Como salvar dados no LocalStorage?",
           "Como recuperar dados do LocalStorage?",
           "Fazendo o mesmo com o SessionStorage",
-        ],
-      },
-      {
-        id: 2,
-        title: "Aprimorando o Todo List",
-        descriptions: [
-          "Salvando os itens do Todo List no LocalStorage",
-          "Opção de marcar como concluído",
-          "Opção de excluir um item",
-          "Opção de editar um item",
         ],
       },
     ],

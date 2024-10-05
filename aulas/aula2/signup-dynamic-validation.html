@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      * {
+        margin: 0;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        background-color: #f1f1f1;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 300px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      button[type="submit"] {
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .error {
+        border-color: red;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Signup</h1>
+    <form method="post" class="form" id="js-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" />
+        <span></span>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" autocomplete="username" />
+        <span></span>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" autocomplete="new-password" />
+        <button type="button">show</button>
+        <span></span>
+      </div>
+      <div class="form-group">
+        <label for="password-confirm">Confirm Password</label>
+        <input
+          type="password"
+          id="password-confirm"
+          autocomplete="new-password"
+        />
+        <span></span>
+      </div>
+      <button type="submit">Signup</button>
+    </form>
+    <script>
+      const $form = document.getElementById("js-form");
+
+      const $name = $form.querySelector("#name");
+      const $email = $form.querySelector("#email");
+      const $password = $form.querySelector("#password");
+      const $passwordConfirm = $form.querySelector("#password-confirm");
+
+      const $showPassword = $form.querySelector("button[type='button']");
+
+      const errors = {};
+
+      $showPassword.addEventListener("click", (e) => {
+        const type =
+          $password.getAttribute("type") === "password" ? "text" : "password";
+        $password.setAttribute("type", type);
+      });
+
+      $name.addEventListener("input", (e) => {
+        if ($name.value.length < 3) {
+          $name.classList.add("error");
+          errors.name = "Name must be at least 3 characters";
+          $name.nextSibling.textContent = "Name must be at least 3 characters";
+        } else {
+          $name.classList.remove("error");
+          $name.nextSibling.textContent = "";
+          delete errors.name;
+        }
+      });
+
+      // Email
+      $email.addEventListener("input", (e) => {
+        // regex
+        if (!$email.value.contains("@")) {
+          $email.classList.add("error");
+          errors.email = "Invalid email";
+          $email.nextSibling.textContent = "Invalid email";
+        } else {
+          $email.classList.remove("error");
+          $email.nextSibling.textContent = "";
+          delete errors.email;
+        }
+      });
+
+      // Password
+      $password.addEventListener("input", (e) => {
+        if ($password.value.length < 8) {
+          $password.classList.add("error");
+          errors.password = "Password must be at least 8 characters";
+          $password.nextSibling.textContent =
+            "Password must be at least 8 characters";
+        } else {
+          $password.classList.remove("error");
+          $password.nextSibling.textContent = "";
+          delete errors.password;
+        }
+      });
+
+      // Password Confirm
+      $passwordConfirm.addEventListener("input", (e) => {
+        if ($passwordConfirm.value !== $password.value) {
+          $passwordConfirm.classList.add("error");
+          errors.passwordConfirm = "Passwords must match";
+          $passwordConfirm.nextSibling.textContent = "Passwords must match";
+        } else {
+          $passwordConfirm.classList.remove("error");
+          $passwordConfirm.nextSibling.textContent = "";
+          delete errors.passwordConfirm;
+        }
+      });
+
+      $form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        console.log({ errors });
+
+        const json = {
+          name: $name.value,
+          email: $email.value,
+          password: $password.value,
+          passwordConfirm: $passwordConfirm.value,
+        };
+
+        console.log(json);
+      });
+    </script>
+  </body>
+</html>

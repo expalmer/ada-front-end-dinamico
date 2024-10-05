@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contandor</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        background-color: #f1f1f1;
+      }
+      .counter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      .counter span {
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contador</h1>
+
+    <div class="counter" id="js-counter">
+      <button data-action="decrement">-</button>
+      <span>0</span>
+      <button data-action="increment">+</button>
+    </div>
+
+    <button id="js-auto">auto</button>
+
+    <script>
+      /*
+        DESAFIO:
+        - Estilizar o contador
+        - Resetar o contador
+        - Reecriar o contador com classes
+        - SUPER MEGA BLASTER PLUS: Criar um input range para definir o intervalo do auto (speed)
+      */
+      const state = {
+        counter: 0,
+        action: null,
+        interval: null,
+      };
+
+      const $counter = document.getElementById("js-counter");
+      const $counterValue = $counter.querySelector("span");
+      const $auto = document.getElementById("js-auto");
+
+      const renderCounter = () => {
+        if (state.action === "increment") {
+          state.counter++;
+        } else if (state.action === "decrement") {
+          state.counter--;
+        }
+        $counterValue.textContent = state.counter;
+      };
+
+      $counter.addEventListener("click", (e) => {
+        if (e.target.tagName === "BUTTON") {
+          state.action = e.target.dataset.action;
+          renderCounter();
+        }
+      });
+
+      $auto.addEventListener("click", () => {
+        if (state.interval) {
+          clearInterval(state.interval);
+          state.interval = null;
+        } else {
+          state.interval = setInterval(() => {
+            renderCounter();
+          }, 700);
+        }
+        $auto.textContent = state.interval ? "stop" : "auto";
+      });
+    </script>
+  </body>
+</html>
