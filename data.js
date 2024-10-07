@@ -220,23 +220,23 @@ export const data = [
   {
     id: 3,
     title:
-      "Persistindo dados no LocalStorage/SessionStorage e começo do Todo List",
+      "Persistindo dados no LocalStorage/SessionStorage e começo do Task Manager",
     items: [
       {
         id: 1,
-        title: "Criando um Todo List",
+        title: "Criando um Task Manager",
         descriptions: [
           "Adicionando itens a uma lista através de um formulário reativo",
         ],
       },
       {
         id: 2,
-        title: "Aprimorando o do Todo List",
+        title: "Aprimorando o do Task Manager",
         descriptions: [
           "Opção de marcar como concluído",
           "Opção de excluir um item",
           "Opção de editar um item",
-          "Salvando o do Todo List no LocalStorage",
+          "Salvando o Task Manager no LocalStorage",
         ],
       },
       {
@@ -394,6 +394,46 @@ export const data = [
         descriptions: [
           "Eu vou avaliar sua participação, então espero que tenha enviado feedbacks, perguntas e comentários lá no formulário",
         ],
+      },
+    ],
+  },
+];
+
+export const trabalho = [
+  {
+    id: 999,
+    title: "Trabalho Final",
+    items: [
+      {
+        id: 1,
+        title: "Ter o DOM",
+        descriptions: [
+          "Manipular o DOM de uma página HTML usando diferentes tipos de seletores",
+          "Adicionar e remover elementos HTML",
+          "Usar eventos para interagir com o usuário",
+          "Adição e remoção de classes e estilização",
+        ],
+      },
+      {
+        id: 2,
+        title: "Usar o LocalStorage e SessionStorage",
+        descriptions: [
+          "Salvar e recuperar dados do LocalStorage",
+          "Salvar e recuperar dados do SessionStorage",
+        ],
+      },
+      {
+        id: 3,
+        title: "Usar APIs externas e consumir dados",
+        descriptions: [
+          "Consumir dados de uma API externa",
+          "Integrar os dados consumidos com o DOM",
+        ],
+      },
+      {
+        id: 4,
+        title: "Entender a natureza assíncrona do Javascript",
+        descriptions: ["Entender callbacks, promises e async/await"],
       },
     ],
   },

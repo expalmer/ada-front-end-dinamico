@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorteio de Grupos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .grupo {
+        margin-top: 10px;
+        opacity: 0;
+        animation: fadeIn 3s forwards; /* Animação de fade-in ao aparecer */
+      }
+
+      .nomes {
+        display: flex;
+        flex-direction: column;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+
+          transform: scale(0.09);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .alunos {
+        list-style-type: none;
+        padding: 0;
+      }
+      .alunos li {
+        margin: 5px 0;
+        padding: 5px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sorteio de Grupos</h1>
+
+    <h3>Alunos:</h3>
+    <div style="display: flex; gap: 24px">
+      <ul class="alunos" id="listaAlunos" style="flex: 1"></ul>
+      <div style="flex: 1">
+        <button id="sortearBtn" onclick="sortearGrupo()">
+          Sortear próximo grupo
+        </button>
+
+        <div id="grupos"></div>
+      </div>
+    </div>
+
+    <script>
+      // Array de alunos
+      const alunos = [
+        "Aridan Silva Pantoja",
+        "Caroline Costa Malveira",
+        "Daniel Moraes Mariz",
+        "Débora Fioravante Da Silveira",
+        "Eric Alisson Barbosa Mescouto",
+        "Felipe Costa Da Silva",
+        "Felipe De Oliveira Garrido",
+        "Francisco Cezaniltom Soares Silva",
+        "Francisco Evangelista Nobre Filho",
+        "Gabriel Martins Leite",
+        "Isabela Ivanoff",
+        "Jonathan Dias De Carvalho",
+        "Julianna Dantas Alencar Reis",
+        "Juliano Pereira",
+        "Karolyne Rafaelly De Sousa Carvalho",
+        "Lucas Silva Do Nascimento",
+        "Marcely Lobato",
+        "Matheus Evaristo De Souza",
+        "Matheus Santos Quintanilha",
+        "Márcia Kamila De Nazaré Feitosa Ramos",
+        "Natalia Kuester",
+        "Raiza Trindade Martins",
+        "Yasmin Barcelos Pires",
+      ];
+
+      // Embaralhar a lista de alunos
+      function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]]; // Troca os elementos de lugar
+        }
+        return array;
+      }
+
+      // Exibe a lista de alunos restantes na página
+      function atualizarListaAlunos() {
+        const listaAlunos = document.getElementById("listaAlunos");
+        listaAlunos.innerHTML = ""; // Limpa a lista
+
+        alunos.forEach((aluno) => {
+          const li = document.createElement("li");
+          li.textContent = aluno;
+          listaAlunos.appendChild(li);
+        });
+
+        // Desabilita o botão se não houver mais alunos
+        if (alunos.length === 0) {
+          document.getElementById("sortearBtn").disabled = true;
+        }
+      }
+
+      // Sorteia o próximo grupo
+      function sortearGrupo() {
+        const grupo = alunos.splice(0, 4); // Remove até 4 alunos
+
+        const divGrupos = document.getElementById("grupos");
+        const grupoDiv = document.createElement("div");
+        grupoDiv.className = "grupo";
+        const id = divGrupos.children.length + 1;
+        const nomes = grupo.map((name) => `<span>${name}</span>`).join("");
+        grupoDiv.innerHTML = `<strong>Grupo ${id}:</strong> <div class="nomes">${nomes}</div>`;
+        divGrupos.appendChild(grupoDiv);
+
+        // Atualiza a lista de alunos
+        atualizarListaAlunos();
+      }
+
+      // Inicializa a lista de alunos e embaralha
+      shuffle(alunos);
+      atualizarListaAlunos();
+    </script>
+  </body>
+</html>
