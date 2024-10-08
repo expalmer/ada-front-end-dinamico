@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="js-input" />
+      <div>
+        <ul id="js-list"></ul>
+      </div>
+    </div>
+    <script>
+      // cria um estado inicial com uma lista vazia
+      const state = {
+        list: [],
+      };
+
+      const $input = document.querySelector("#js-input");
+
+      // pego a referência da ul
+      const $ul = document.querySelector("#js-list");
+
+      // função para renderizar a lista
+      const renderList = () => {
+        // começo com uma string vazia
+        let html = "";
+        state.list.forEach((item) => {
+          // para cada item da lista, eu adiciono um li com o valor do item
+          html += `<li>${item}</li>`;
+        });
+
+        // coloco a string com os li dentro da ul
+        $ul.innerHTML = html;
+      };
+
+      // coloco um evento de change no input para colocar o valor do input numa lista
+      $input.addEventListener("keyup", (event) => {
+        // se a key for Enter, eu coloco o valor do input numa lista
+        if (event.key === "Enter") {
+          // adiciono o valor do input na lista
+          state.list.push($input.value);
+
+          // renderizo a lista
+          renderList();
+
+          // limpa o input
+          $input.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>

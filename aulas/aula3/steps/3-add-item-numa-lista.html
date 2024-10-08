@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="js-input" />
+      <div>
+        <ul id="js-list"></ul>
+      </div>
+    </div>
+    <script>
+      const $input = document.querySelector("#js-input");
+
+      // pego a referência da ul
+      const $ul = document.querySelector("#js-list");
+
+      // coloco um evento de change no input para colocar o valor do input numa lista
+      $input.addEventListener("keyup", (event) => {
+        // se a key for Enter, eu coloco o valor do input numa lista
+        if (event.key === "Enter") {
+          // cria um li
+          const $li = document.createElement("li");
+          // coloca o valor do input no li
+          $li.textContent = $input.value;
+
+          // coloca o li dentro da ul
+          $ul.appendChild($li);
+
+          // limpa o input
+          $input.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>

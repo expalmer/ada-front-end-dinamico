@@ -219,28 +219,36 @@ export const data = [
   },
   {
     id: 3,
-    title:
-      "Persistindo dados no LocalStorage/SessionStorage e começo do Task Manager",
+    title: "Começo do Task Manager",
     items: [
       {
         id: 1,
         title: "Criando um Task Manager",
         descriptions: [
-          "Adicionando itens a uma lista através de um formulário reativo",
+          "Opção de marcar como concluído",
+          "Opção de excluir um item",
+          "Opção de editar um item",
         ],
       },
       {
         id: 2,
-        title: "Aprimorando o do Task Manager",
+        title: "[ arquivos da aula ]",
+
         descriptions: [
-          "Opção de marcar como concluído",
-          "Opção de excluir um item",
-          "Opção de editar um item",
-          "Salvando o Task Manager no LocalStorage",
+          `${button(
+            "https://github.com/expalmer/ada-front-end-dinamico/tree/master/aulas/aula3",
+            "github com os arquivos"
+          )}`,
         ],
       },
+    ],
+  },
+  {
+    id: 4,
+    title: "LocalStorage e SessionStorage",
+    items: [
       {
-        id: 3,
+        id: 2,
         title: "Entendo LocalStorage",
         descriptions: [
           "O que é LocalStorage?",
@@ -249,32 +257,16 @@ export const data = [
           "Fazendo o mesmo com o SessionStorage",
         ],
       },
-    ],
-  },
-  {
-    id: 4,
-    title: "Trabalhando com APIs externas e integrando com o Todo List",
-    items: [
       {
         id: 1,
-        title: "API do Rick and Morty",
-        descriptions: [
-          "O que é uma API e como consumir?",
-          "Integrando a API do Rick and Morty no Todo List para colocamos os responsáveis pelas tarefas",
-        ],
-      },
-      {
-        id: 2,
-        title: "API do Gyphy",
-        descriptions: [
-          "Integrando a API do Gyphy no Todo List para ser possível adicionar gifs aos itens",
-        ],
+        title: "Aprimorando o Task Manager",
+        descriptions: ["Salvando o Task Manager no LocalStorage"],
       },
     ],
   },
   {
     id: 5,
-    title: "Callback, Promises e Async/Await",
+    title: "Callback, Promises, Async/Await e consumo de API",
     items: [
       {
         id: 1,
@@ -304,6 +296,14 @@ export const data = [
           "O que é o Async/Await?",
           "Como criar uma função assíncrona?",
           "Como consumir uma função assíncrona?",
+        ],
+      },
+      {
+        id: 4,
+        title: "API do Rick and Morty",
+        descriptions: [
+          "O que é uma API e como consumir?",
+          "Integrando a API do Rick and Morty no Todo List para colocamos os responsáveis pelas tarefas",
         ],
       },
     ],

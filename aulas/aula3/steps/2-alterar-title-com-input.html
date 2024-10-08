@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="js-title"></h1>
+      <!-- crio um input -->
+      <input type="text" id="js-input" />
+    </div>
+    <script>
+      const $title = document.querySelector("#js-title");
+      $title.textContent = "Task Manager";
+
+      // pegando a referência do input
+      const $input = document.querySelector("#js-input");
+
+      // coloca um valor padrão no input
+      $input.value = "Task Manager";
+
+      // adicionando um evento de input no input
+      $input.addEventListener("input", (event) => {
+        // alterando o texto do h1 para o valor do input
+        $title.textContent = $input.value;
+      });
+    </script>
+  </body>
+</html>

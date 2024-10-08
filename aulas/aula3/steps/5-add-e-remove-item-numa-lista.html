@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="js-input" />
+      <div>
+        <ul id="js-list"></ul>
+      </div>
+    </div>
+    <script>
+      // cria um estado inicial com uma lista vazia
+      const state = {
+        list: [],
+      };
+
+      const $input = document.querySelector("#js-input");
+
+      // pego a referência da ul
+      const $ul = document.querySelector("#js-list");
+
+      // função para renderizar a lista
+      const renderList = () => {
+        // começo com uma string vazia
+        let html = "";
+        state.list.forEach((item) => {
+          // para cada item da lista, eu adiciono um li com o valor do item
+          // adiciono um data-id para cada item
+          html += `<li data-id="${item.id}">${item.value}</li>`;
+        });
+
+        // coloco a string com os li dentro da ul
+        $ul.innerHTML = html;
+      };
+
+      // coloco um evento de change no input para colocar o valor do input numa lista
+      $input.addEventListener("keyup", (event) => {
+        // se a key for Enter, eu coloco o valor do input numa lista
+        if (event.key === "Enter") {
+          // adiciono o valor do input na lista
+          state.list.push({
+            // adiciono um id para cada item
+            id: state.list.length,
+            // adiciono o valor do input
+            value: $input.value,
+          });
+
+          // renderizo a lista
+          renderList();
+
+          // limpa o input
+          $input.value = "";
+        }
+      });
+
+      // crio um evento para na ul para remover o item da lista
+      $ul.addEventListener("click", (event) => {
+        // pego o li clicado
+        // MDN: https://developer.mozilla.org/pt-BR/docs/Web/API/Element/closest
+        const $li = event.target.closest("li");
+        // pego o id do item clicado com a função dataset
+        // MDN: https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLElement/dataset
+        const id = $li.dataset.id;
+
+        // removo o item da lista usando filter, que retorna um novo array sem o item clicado
+        // MDN: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+        state.list = state.list.filter((item) => +item.id !== +id);
+
+        // renderizo a lista
+        renderList();
+      });
+    </script>
+  </body>
+</html>
