@@ -368,6 +368,12 @@ export const data = [
           "Conforme andamos no curso, veremos o que será o trabalho final",
         ],
       },
+      {
+        id: 2,
+        title: "Primeira imagem do trabalho",
+
+        descriptions: [`<img src="/kanban.png" />`],
+      },
     ],
   },
   {
