@@ -1,0 +1,240 @@
+.filters {
+  margin: auto;
+  max-width: 960px;
+  display: flex;
+  gap: 40px;
+  padding: 24px 40px;
+  top: 0;
+  position: sticky;
+  background-color: #fff;
+  border-bottom: solid 1px #000;
+  z-index: 1;
+}
+
+.container {
+  margin: auto;
+  max-width: 960px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px;
+}
+
+h1 {
+  font-size: 24px;
+  color: #000;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-beetwen {
+  justify-content: space-between;
+}
+
+.justify-end {
+  justify-content: end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.gap-1 {
+  gap: 8px;
+}
+
+.text-sm {
+  font-size: 14px;
+}
+
+.border {
+  border: solid 1px #000;
+}
+
+.p-xs {
+  padding: 4px 8px;
+}
+.p {
+  padding: 8px 16px;
+}
+.p-lg {
+  padding: 16px 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.section {
+  flex: 1;
+  padding: 16px 24px;
+}
+
+.cards {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card {
+  position: relative;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border: solid 1px #000;
+}
+
+.badges {
+  display: flex;
+  gap: 8px;
+}
+
+.badge {
+  font-size: 14px;
+  border: solid 1px #000;
+  padding: 4px 8px;
+}
+
+.filter-user {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+  background-color: #000;
+  color: azure;
+  border-radius: 100%;
+  overflow: hidden;
+  filter: grayscale(100%);
+  transition: ease 1s transform;
+}
+
+.filter-user.selected {
+  filter: none;
+  transform: scale(1.1);
+}
+
+.filter-tag {
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  border: solid 1px #bebebe;
+  color: #aaa;
+  padding: 4px 8px;
+}
+.filter-tag.selected {
+  border: solid 1px #000;
+  color: #000;
+}
+
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+  background-color: #000;
+  color: azure;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.gray {
+  filter: grayscale(100%);
+  transform: scale(0.9);
+}
+
+.switch-left,
+.switch-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.switch-left {
+  left: -16px;
+}
+
+.switch-right {
+  right: -16px;
+}
+
+.x-user {
+  position: relative;
+  padding: 2px 4px;
+  display: flex;
+  justify-content: center;
+}
+
+.x-user-dd {
+  top: 100%;
+  left: 0;
+  display: none;
+  position: absolute;
+  margin: 0;
+  padding: 8px 0 0;
+  list-style: none;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #fff;
+  padding: 2px 4px;
+  border-radius: 12px;
+  border: #000 solid 1px;
+}
+
+.x-user:hover .x-user-dd {
+  display: flex;
+}
+
+pre {
+  white-space: pre-wrap; /* Mantém as quebras de linha */
+  word-wrap: break-word; /* Quebra palavras longas */
+  background-color: #f4f4f4; /* Cor de fundo para destacar o bloco */
+  padding: 10px; /* Espaçamento interno */
+  border-radius: 5px; /* Bordas arredondadas */
+  border: 1px solid #ddd; /* Borda fina */
+  font-family: "Courier New", monospace; /* Fonte monoespaçada */
+  font-size: 14px; /* Tamanho da fonte */
+  color: #333; /* Cor do texto */
+}
+
+code {
+  white-space: pre-wrap; /* Faz com que o código dentro de <code> respeite quebras de linha */
+}
+
+.add {
+  margin-top: 40px;
+}
+
+.hidden {
+  display: none;
+}
