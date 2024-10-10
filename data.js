@@ -262,6 +262,16 @@ export const data = [
         title: "Aprimorando o Task Manager",
         descriptions: ["Salvando o Task Manager no LocalStorage"],
       },
+      {
+        id: 3,
+        title: "[ arquivos da aula ]",
+        descriptions: [
+          `${button(
+            "https://github.com/expalmer/ada-front-end-dinamico/tree/master/aulas/aula4",
+            "github com os arquivos"
+          )}`,
+        ],
+      },
     ],
   },
   {

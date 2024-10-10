@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban</title>
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
+    <div class="filters">
+      <div class="flex justify-beetwen w-full">
+        <div class="flex items-center gap-1 flex-1">
+          <div>filtros:</div>
+          <div class="flex items-center gap-1" id="js-filter-users">
+            <span class="filter-user">
+              <img
+                src="https://randomuser.me/api/portraits/men/33.jpg"
+                alt=""
+              />
+            </span>
+            <span class="filter-user">
+              <img
+                src="https://randomuser.me/api/portraits/men/33.jpg"
+                alt=""
+              />
+            </span>
+            <span class="filter-user">
+              <img
+                src="https://randomuser.me/api/portraits/men/33.jpg"
+                alt=""
+              />
+            </span>
+          </div>
+          <div class="flex items-center gap-1" id="js-filter-tags">
+            <span class="filter-tag">frontend</span>
+            <span class="filter-tag">backend</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-1 justify-end">
+          <div class="x-user">
+            <span class="user" id="js-user">
+              <img
+                src="https://randomuser.me/api/portraits/men/33.jpg"
+                alt=""
+              />
+            </span>
+            <ul class="x-user-dd" id="js-users">
+              <li>
+                <span class="user">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/33.jpg"
+                    alt=""
+                  />
+                </span>
+              </li>
+              <!-- 
+              <li>
+                <span class="user">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/44.jpg"
+                    alt=""
+                  />
+                </span>
+              </li>
+              <li>
+                <span class="user">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/92.jpg"
+                    alt=""
+                  />
+                </span>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="padding: 40px">
+      <pre><code id="code"></code></pre>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

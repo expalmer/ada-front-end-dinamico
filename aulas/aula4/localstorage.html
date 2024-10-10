@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- varias formas de guardar dados no localStorage como todos tipos primitivos, objetos e arrays -->
+    <script>
+      localStorage.setItem("nome", "Rafael");
+      localStorage.setItem("idade", 25);
+      localStorage.setItem("altura", 1.75);
+      localStorage.setItem("casado", false);
+
+      // Quando for guardar um objeto ou array no localStorage, é necessário converter para string
+      localStorage.setItem(
+        "objeto",
+        JSON.stringify({ nome: "Rafael", idade: 25 })
+      );
+      localStorage.setItem("array", JSON.stringify([1, 2, 3, 4, 5]));
+
+      // Lembrando que todo valor primivo é convertido para string
+
+      // pegar os dados do localStorage
+      console.log(localStorage.getItem("nome"));
+      console.log(localStorage.getItem("idade"));
+      console.log(localStorage.getItem("altura"));
+      console.log(localStorage.getItem("casado"));
+
+      // converter de volta para o tipo original
+      console.log(JSON.parse(localStorage.getItem("objeto")));
+      console.log(JSON.parse(localStorage.getItem("array")));
+
+      // remover um item do localStorage
+      localStorage.removeItem("nome");
+      localStorage.removeItem("idade");
+      localStorage.removeItem("altura");
+      localStorage.removeItem("casado");
+      localStorage.removeItem("objeto");
+      localStorage.removeItem("array");
+
+      // limpar todos os dados do localStorage
+      localStorage.clear();
+    </script>
+  </body>
+</html>
