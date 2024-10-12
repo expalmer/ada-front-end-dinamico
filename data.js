@@ -434,7 +434,7 @@ export const trabalho = [
         title: "Acesse aqui o arquivo com a descrição do trabalho",
         descriptions: [
           button(
-            "https://github.com/expalmer/ada-front-end-dinamico/TRABALHO.md",
+            "https://github.com/expalmer/ada-front-end-dinamico/blob/master/TRABALHO.md",
             "TRABALHO.md"
           ),
         ],

@@ -90,12 +90,5 @@ document.addEventListener("DOMContentLoaded", () => {
         nav.classList.remove("active");
       }
     });
-
-    // for (let i = 0; i < $siblings.length; i++) {
-    //   const $target = $siblings[i].getAttribute("href");
-    //   if ($siblings[i] !== $el) {
-    //     $siblings[i].classList.remove("active");
-    //   }
-    // }
   });
 });

@@ -6,7 +6,6 @@ Deve ser feito com HTML, CSS e Javascript (Typescript é opcional);
 
 Pode usar Vite, Webpack ou qualquer outra ferramenta de build, porém não é obrigatório, pode ser feito somente em uma página HTML com os scripts na página ou em arquivos separados;
 
-// markdown image
 ![Kanban](/public/kanban.png)
 
 Requisitos:
