@@ -43,12 +43,13 @@ Avaliação:
 
   Critérios das avaliações dos colegas:
 
-  - Participação Ativa: Como o colega contribuiu nas discussões e na execução das tarefas?
-  - Compromisso e Pontualidade: O colega foi responsável e pontual nas entregas e reuniões?
-  - Qualidade das Entregas: O trabalho que o colega entregou foi de boa qualidade?
-  - A avaliação deve ser enviada no formulário que passei para vocês na última aula; e vocês precisam enviar o token :)
+  - **Participação Ativa:** Como o colega contribuiu nas discussões e na execução das tarefas?
+  - **Compromisso e Pontualidade:** O colega foi responsável e pontual nas entregas e reuniões?
+  - **Qualidade das Entregas:** O trabalho que o colega entregou foi de boa qualidade?
 
-Observações:
+A avaliação deve ser enviada no formulário que passei para vocês na última aula; e vocês precisam enviar o token :)
+
+**Observações:**
 São 3 tópicos, as avaliações são de 1 a 5, onde 1 é o pior e 5 é o melhor.
 Já que o total de 30% representa 30, segue um exemplo:
 ex: (5+5+5)=15 \* 2 = 30
