@@ -311,9 +311,24 @@ export const data = [
       {
         id: 4,
         title: "API do Rick and Morty",
+        descriptions: ["O que é uma API e como consumir?"],
+      },
+      {
+        id: 5,
+        title: "Adicionar cards no Task Manager",
         descriptions: [
-          "O que é uma API e como consumir?",
-          "Integrando a API do Rick and Morty no Todo List para colocamos os responsáveis pelas tarefas",
+          "Adicionar cards no Task Manager",
+          "Mudar card de coluna",
+        ],
+      },
+      {
+        id: 6,
+        title: "[ arquivos da aula ]",
+        descriptions: [
+          `${button(
+            "https://github.com/expalmer/ada-front-end-dinamico/tree/master/aulas/aula5",
+            "github com os arquivos"
+          )}`,
         ],
       },
     ],
