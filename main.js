@@ -1,7 +1,7 @@
 import "./styles/reset.css";
 import "./styles/output.css";
 
-import { combinados, data, instrutor, intro } from "./data.js";
+import { combinados, data, instrutor, intro, trabalho } from "./data.js";
 
 const renderSection = (x, cb) => {
   const blur = [7].includes(x.id) ? "blur-sm" : "";
@@ -45,6 +45,13 @@ const renderLessonTitle = (x) => {
     `;
 };
 
+const renderTrabalhoTitle = (x) => {
+  return `
+      <span class="w-4 min-h-1 bg-gradient-to-r from-blue-500 to-blue-200 inline-flex"></span>
+      <span class="text-ada-primary">Criar um KANBAN</span>
+    `;
+};
+
 const render = (data, $dom, cb) => {
   let html = "";
 
@@ -61,11 +68,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const $instrutor = document.getElementById("js-instrutor");
   const $combinados = document.getElementById("js-combinados");
   const $aulas = document.getElementById("js-aulas");
+  const $trabalho = document.getElementById("js-trabalho");
 
   render(intro, $intro);
   render(instrutor, $instrutor);
   render(combinados, $combinados);
   render(data, $aulas, renderLessonTitle);
+  render(trabalho, $trabalho, renderTrabalhoTitle);
 
   $nav.addEventListener("click", (e) => {
     // e.preventDefault();

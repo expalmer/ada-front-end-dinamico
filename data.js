@@ -388,16 +388,10 @@ export const data = [
     items: [
       {
         id: 1,
-        title: "Aula reservada para o trabalho. Hum... o que será?",
+        title: "Aula reservada para o trabalho.",
         descriptions: [
-          "Conforme andamos no curso, veremos o que será o trabalho final",
+          "Os grupos devem se reunir para trabalhar no projeto final. Esse é o momento de tirar dúvidas!",
         ],
-      },
-      {
-        id: 2,
-        title: "Primeira imagem do trabalho",
-
-        descriptions: [`<img src="/kanban.png" />`],
       },
     ],
   },
@@ -437,34 +431,13 @@ export const trabalho = [
     items: [
       {
         id: 1,
-        title: "Ter o DOM",
+        title: "Acesse aqui o arquivo com a descrição do trabalho",
         descriptions: [
-          "Manipular o DOM de uma página HTML usando diferentes tipos de seletores",
-          "Adicionar e remover elementos HTML",
-          "Usar eventos para interagir com o usuário",
-          "Adição e remoção de classes e estilização",
+          button(
+            "https://github.com/expalmer/ada-front-end-dinamico/TRABALHO.md",
+            "TRABALHO.md"
+          ),
         ],
-      },
-      {
-        id: 2,
-        title: "Usar o LocalStorage e SessionStorage",
-        descriptions: [
-          "Salvar e recuperar dados do LocalStorage",
-          "Salvar e recuperar dados do SessionStorage",
-        ],
-      },
-      {
-        id: 3,
-        title: "Usar APIs externas e consumir dados",
-        descriptions: [
-          "Consumir dados de uma API externa",
-          "Integrar os dados consumidos com o DOM",
-        ],
-      },
-      {
-        id: 4,
-        title: "Entender a natureza assíncrona do Javascript",
-        descriptions: ["Entender callbacks, promises e async/await"],
       },
     ],
   },
