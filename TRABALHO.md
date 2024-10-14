@@ -27,11 +27,17 @@ Requisitos:
    - 4.4) Deve ser possível mover um card para outra coluna;
    - 4.5) Deve ser possível remover o card;
 5. Filtros
+
    - 5.1) Mostrar o filtro por usuário;
    - 5.2) Mostrar o filtro por tag;
    - 5.3) Dever ter um toggle de selecionar o usuário;
    - 5.4) Deve ter um toggle ao selecionar a tag;
    - 5.5) A cada clique no filtro de usuário e/ou tag, deve mostrar os cards que satisfaçam os filtros selecionados;
+
+6. Salvamento
+   - 6.1) Salvar os cards no localStorage;
+   - 6.2) Salvar o usuário selecionado no localStorage;
+   - 6.3) Salvar os filtros selecionados no localStorage;
 
 Avaliação:
 
