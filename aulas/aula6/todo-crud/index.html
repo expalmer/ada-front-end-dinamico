@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .container {
+        margin: auto;
+        padding: 40px;
+        max-width: 600px;
+      }
+    </style>
+    <title>Todo Crud</title>
+  </head>
+  <body>
+    <div class="container">
+      <form id="form">
+        <input type="number" name="id" value="" placeholder="id" />
+        <p>
+          <label for="description">Description</label>
+          <input type="text" name="description" id="description" />
+        </p>
+        <p>
+          <label for="due_date">Done</label>
+          <input type="checkbox" name="done" checked value="true" />
+          <button type="submit">Salvar</button>
+        </p>
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Done</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="body"></tbody>
+      </table>
+    </div>
+    <script>
+      const URL = `http://localhost:3000/api/todo/palmer`;
+
+      const form = document.getElementById("form");
+      const body = document.getElementById("body");
+
+      body.addEventListener("click", (event) => {
+        if (event.target.tagName === "BUTTON") {
+          const id = event.target.dataset.id;
+          const action = event.target.dataset.action;
+          // Delete
+          if (action === "delete") {
+            fetch(`${URL}/${id}`, {
+              method: "DELETE",
+            }).then(() => fetchTodos());
+            return;
+          }
+          if (action === "update") {
+            form.querySelector("input[name=id]").value = id;
+            form.querySelector("input[name=description]").value =
+              event.target.parentElement.parentElement.querySelector(
+                "td:nth-child(2)"
+              ).textContent;
+          }
+          // Update
+        }
+      });
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const data = {
+          id: form.id.value,
+          description: form.description.value,
+          done: form.done.checked,
+        };
+
+        if (!data.description) {
+          return;
+        }
+        // se tem id é update
+        if (data.id) {
+          const response = await fetch(`${URL}/${data.id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          });
+
+          const todo = await response.json();
+
+          form.reset();
+
+          fetchTodos();
+          return;
+        }
+
+        const response = await fetch(URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        const todo = await response.json();
+
+        form.reset();
+
+        fetchTodos();
+      });
+
+      const fetchTodos = async () => {
+        const response = await fetch(URL);
+        const todos = await response.json();
+        const html = todos
+          .map(
+            (todo) => `
+          <tr>
+            <td>${todo.id}</td>
+            <td>${todo.description}</td>
+            <td>${todo.done ? "Sim" : "Não"}</td>
+            <td>
+              <button data-id="${todo.id}" data-action="delete">Deletar</button>
+              <button data-id="${todo.id}" data-action="update">Update</button>
+            </td>
+          </tr>
+        `
+          )
+          .join("");
+
+        body.innerHTML = html;
+      };
+
+      fetchTodos();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .container {
+        margin: auto;
+        padding: 40px;
+        max-width: 600px;
+      }
+    </style>
+    <title>Callback e Promise</title>
+  </head>
+  <body>
+    <script>
+      // const executar = (valorA, valorB, usarEssaFunc, usarEssaQuandoAcabar) => {
+      //   // / `O valor é ${usarEssaFunc(valorA, valorB)}`;
+      //   // return usarEssaFunc(valorA, valorB);
+      //   setTimeout(() => {
+      //     const res = usarEssaFunc(valorA, valorB);
+      //     usarEssaQuandoAcabar(res);
+      //   }, 2000);
+      //   return;
+      // };
+
+      const executar = (valorA, valorB, usarEssaFunc) => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            const res = usarEssaFunc(valorA, valorB);
+            resolve(res);
+          }, 2000);
+        });
+      };
+
+      const soma = (a, b) => {
+        return a + b;
+      };
+
+      const sub = (a, b) => {
+        return a - b;
+      };
+
+      const div = (a, b) => {
+        return a / b;
+      };
+
+      const mul = (a, b) => {
+        return a * b;
+      };
+
+      executar(2, 2, soma)
+        .then((res1) => {
+          return executar(res1, 6, soma);
+        })
+        .then((res1) => {
+          return executar(res1, 6, soma);
+        })
+        .then((res1) => {
+          return executar(res1, 6, soma);
+        })
+        .then((res1) => {
+          return executar(res1, 6, soma);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+      // Callback hell
+      // const resultado = executar(2, 2, soma, (res1) => {
+      //   console.log(res1);
+      //   const valor2 = executar(res1, 6, soma, (res2) => {
+      //     console.log({ res2 });
+      //     const valor3 = executar(res2, 3, div, (res3) => {
+      //       console.log({ res3 });
+      //     });
+      //   });
+      // });
+    </script>
+  </body>
+</html>
