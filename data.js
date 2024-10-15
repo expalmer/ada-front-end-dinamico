@@ -356,6 +356,16 @@ export const data = [
           "Patch para marcar como concluído",
         ],
       },
+      {
+        id: 6,
+        title: "[ arquivos da aula ]",
+        descriptions: [
+          `${button(
+            "https://github.com/expalmer/ada-front-end-dinamico/tree/master/aulas/aula6",
+            "github com os arquivos"
+          )}`,
+        ],
+      },
     ],
   },
   {
