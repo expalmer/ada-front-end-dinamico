@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filtrar</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      * {
+        margin: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
+        border-bottom: solid 1px #000;
+      }
+
+      .filters {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        gap: 8px;
+      }
+      .filters li {
+        border: solid 1px #000;
+        padding: 4px 8px;
+        cursor: pointer;
+      }
+
+      .active {
+        background-color: #000;
+        color: #fff;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+        padding: 16px;
+        list-style: none;
+      }
+      .cards li {
+        border: solid 1px #000;
+        padding: 24px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+        height: 100%;
+      }
+      .frontend {
+        background: linear-gradient(90deg, #ff9a9e 0%, #fad0c4 100%);
+      }
+      .backend {
+        background: linear-gradient(90deg, #fbc2eb 0%, #a6c1ee 100%);
+      }
+      .fullstack {
+        background: linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <ul class="filters" id="users"></ul>
+        <ul class="filters" id="tags"></ul>
+      </header>
+      <main>
+        <ul class="cards" id="cards"></ul>
+      </main>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

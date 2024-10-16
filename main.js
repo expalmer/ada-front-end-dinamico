@@ -4,9 +4,9 @@ import "./styles/output.css";
 import { combinados, data, instrutor, intro, trabalho } from "./data.js";
 
 const renderSection = (x, cb) => {
-  const blur = [7].includes(x.id) ? "blur-sm" : "";
+  // const blur = [7].includes(x.id) ? "blur-sm" : "";
   return `
-    <div class="p-8 border border-gray-700/40 bg-gray-700/30 text-white rounded-3xl ${blur}">
+    <div class="p-8 border border-gray-700/40 bg-gray-700/30 text-white rounded-3xl">
         <h3 class="text-2xl font-bold uppercase">
           ${cb ? cb(x) : x.title}
         </h3>

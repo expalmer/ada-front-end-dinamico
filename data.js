@@ -370,24 +370,18 @@ export const data = [
   },
   {
     id: 7,
-    title: "Lorem20 ipsum dolor sit amet",
+    title: "Configurando o projeto final e filtrando os cards",
     items: [
       {
         id: 1,
-        title: "lorem ipsum dolor sit amet",
-        descriptions: [
-          "lorem ipsum dolor sit amet",
-          "lorem ipsum dolor sit amet",
-          "lorem ipsum dolor sit amet",
-        ],
+        title: "Como filtrar os cards",
+        descriptions: ["Iremos aprender a filtrar os cards por usuário e tag"],
       },
       {
-        id: 1,
-        title: "lorem ipsum dolor sit amet",
+        id: 2,
+        title: "Como configurar o projeto final usando Vite",
         descriptions: [
-          "lorem ipsum dolor sit amet",
-          "lorem ipsum dolor sit amet",
-          "lorem ipsum dolor sit amet",
+          "Vamos configurar o projeto final usando Vite com typescript",
         ],
       },
     ],
