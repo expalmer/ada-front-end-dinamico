@@ -63,20 +63,31 @@
       }
       .frontend {
         background: linear-gradient(90deg, #ff9a9e 0%, #fad0c4 100%);
+        border-radius: 24px 24px 0 0;
       }
       .backend {
         background: linear-gradient(90deg, #fbc2eb 0%, #a6c1ee 100%);
+        border-radius: 0 0 24px 24px;
       }
       .fullstack {
         background: linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%);
+        border-radius: 24px 0 24px 0;
       }
     </style>
   </head>
   <body>
     <div class="container">
       <header class="header">
-        <ul class="filters" id="users"></ul>
-        <ul class="filters" id="tags"></ul>
+        <ul class="filters" id="users">
+          <!-- <li>user a</li>
+          <li>user a</li>
+          <li>user a</li> -->
+        </ul>
+        <ul class="filters" id="tags">
+          <!-- <li>user a</li>
+          <li class="active">user a</li>
+          <li>user a</li> -->
+        </ul>
       </header>
       <main>
         <ul class="cards" id="cards"></ul>

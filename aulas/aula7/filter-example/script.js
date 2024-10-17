@@ -9,22 +9,7 @@ class App {
       tag: null,
     };
 
-    this.users = [
-      {
-        id: 1,
-        name: "Darth Vader",
-      },
-      {
-        id: 2,
-        name: "Luke Skywalker",
-      },
-      {
-        id: 3,
-        name: "Leia Organa",
-      },
-    ];
-
-    this.tags = ["frontend", "backend", "fullstack"];
+    this.users = [];
 
     this.cards = [
       {
@@ -83,23 +68,44 @@ class App {
       },
     ];
 
+    this.tags = ["frontend", "backend", "fullstack"];
+
     this.render();
     this.eventListeners();
+    this.replaceUsers();
+  }
+
+  replaceUsers() {
+    const users = localStorage.getItem("users");
+    if (users) {
+      this.users = JSON.parse(users);
+      return;
+    }
+
+    fetch(
+      "https://gist.githubusercontent.com/expalmer/252eb374d054e231a5a477b941d7c4f6/raw/bffd4a3c68c393c64ba478c6e617708c6bab5e3a/users"
+    )
+      .then((d) => d.json())
+      .then((users) => {
+        this.users = users;
+        localStorage.setItem("users", JSON.stringify(users));
+        this.render();
+      });
   }
 
   eventListeners() {
-    this.$users.addEventListener("click", (e) => {
-      if (e.target.tagName === "LI") {
-        const id = parseInt(e.target.dataset.id);
-        this.filters.userId = this.filters.userId === id ? null : id;
+    this.$users.addEventListener("click", (event) => {
+      if (event.target.tagName === "LI") {
+        const id = +event.target.dataset.id;
+        this.filters.userId = id === this.filters.userId ? null : id;
         this.render();
       }
     });
 
-    this.$tags.addEventListener("click", (e) => {
-      if (e.target.tagName === "LI") {
-        const name = e.target.dataset.name;
-        this.filters.tag = this.filters.tag === name ? null : name;
+    this.$tags.addEventListener("click", (event) => {
+      if (event.target.tagName === "LI") {
+        const tag = event.target.dataset.tag;
+        this.filters.tag = tag === this.filters.tag ? null : tag;
         this.render();
       }
     });
@@ -112,10 +118,17 @@ class App {
   }
 
   renderUsers() {
-    const html = this.users
+    const html = this?.users
       .map((user) => {
         const className = this.filters.userId === user.id ? "active" : "";
-        return `<li data-id="${user.id}" class="${className}">${user.name}</li>`;
+        return `
+        <li data-id="${user.id}" class="${className}"  :class="{ active: isActive, 'text-danger': hasError }">
+        <span>
+        <img src="${user.image}" width="42" height="42" />
+        </span>
+        ${user.name}
+      </li>
+      `;
       })
       .join("");
 
@@ -126,7 +139,9 @@ class App {
     const html = this.tags
       .map((tag) => {
         const className = this.filters.tag === tag ? "active" : "";
-        return `<li data-name="${tag}" class="${className}">${tag}</li>`;
+        return `
+        <li data-tag="${tag}" class="${className}">${tag}</li>
+      `;
       })
       .join("");
 
@@ -134,16 +149,19 @@ class App {
   }
 
   renderCards() {
-    const filteredCards = this.cards.filter((card) => {
-      if (this.filters.userId && this.filters.tag) {
-        return (
-          card.userId === this.filters.userId && card.tag === this.filters.tag
-        );
-      } else if (this.filters.userId) {
-        return card.userId === this.filters.userId;
-      } else if (this.filters.tag) {
-        return card.tag === this.filters.tag;
+    const filteredCards = this.cards.filter((card, index) => {
+      const { userId, tag } = this.filters;
+
+      if (userId && tag) {
+        return card.tag === tag && card.userId === userId;
       }
+      if (userId) {
+        return card.userId === userId;
+      }
+      if (tag) {
+        return card.tag === tag;
+      }
+
       return true;
     });
 
@@ -151,11 +169,12 @@ class App {
       .map((card) => {
         const user = this.users.find((user) => user.id === card.userId);
         return `
-        <li data-id="${card.id}" class="${card.tag}">
-          <h3>${card.task}</h3>
+        <li class="${card.tag}">
+          <h3>${card.id} :: ${card.task}</h3>
           <p>${card.tag}</p>
-          <p>${user.name}</p>
-        </li>`;
+          <p>${user?.name}</p>
+        </li>
+      `;
       })
       .join("");
 

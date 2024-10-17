@@ -384,6 +384,16 @@ export const data = [
           "Vamos configurar o projeto final usando Vite com typescript",
         ],
       },
+      {
+        id: 6,
+        title: "[ arquivos da aula ]",
+        descriptions: [
+          `${button(
+            "https://github.com/expalmer/ada-front-end-dinamico/tree/master/aulas/aula7",
+            "github com os arquivos"
+          )}`,
+        ],
+      },
     ],
   },
   {
